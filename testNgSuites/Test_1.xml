@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<suite name="Test_1">
+    <parameter name="driverPath" value="src\\main\\resources\\Geckodriver.exe"/>
+    <parameter name="url" value="https://www.pocztowy24.pl/demo/"/>
+    <parameter name= "name" value="Andrzej"/>
+    <parameter name= "indentity" value="costam"/>
+    <parameter name= "phoneNumber" value="123456789"/>
+    <parameter name= "amount" value="45"/>
+    <parameter name= "emailAddress" value="jan@niezbedny.pl"/>
+
+    <test name="Wykonaj transakcję">
+
+        <classes>
+
+            <class name="pl.b2b.net.pocztowy24.config.ConfigTest">
+
+                <methods>
+                    <include name="setUp"/>
+                    <include name="openSite"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.net.pocztowy24.page.loginPage.LoginTest">
+                <methods>
+                    <include name="loginToServiceTest"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.net.pocztowy24.page.chargePhone.ChargeTest">
+                <methods>
+                    <include name="clickOnChargeButton"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.net.pocztowy24.page.payment.PaymentTest">
+            <methods>
+                <include name="paymentTest"/>
+            </methods>
+        </class>
+            <class name="pl.b2b.net.pocztowy24.page.confirmPage.ConfirmTest">
+                <methods>
+                    <include name="confirmButtonTest"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.net.pocztowy24.page.logout.LogoutTest">
+                <methods>
+                    <include name="logoutTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="zamkniecie web drivera">
+        <classes>
+            <class name="pl.b2b.net.pocztowy24.config.ConfigTest">
+                <methods>
+                    <include name="tearUp"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
